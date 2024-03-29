@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoUI", "MonoUI.csproj", "{FF848F67-33CA-42D7-88D0-1E441303F9EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoUI.Tester", "..\MonoUI.Tester\MonoUI.Tester.csproj", "{2EE8EB5D-3552-476F-89D2-DE08D3435267}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF848F67-33CA-42D7-88D0-1E441303F9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF848F67-33CA-42D7-88D0-1E441303F9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF848F67-33CA-42D7-88D0-1E441303F9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF848F67-33CA-42D7-88D0-1E441303F9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EE8EB5D-3552-476F-89D2-DE08D3435267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EE8EB5D-3552-476F-89D2-DE08D3435267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EE8EB5D-3552-476F-89D2-DE08D3435267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EE8EB5D-3552-476F-89D2-DE08D3435267}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15F20561-D019-425B-80C7-02B7265A8E68}
+	EndGlobalSection
+EndGlobal
