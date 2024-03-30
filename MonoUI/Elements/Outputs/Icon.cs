@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonoUI.Elements.Outputs
 {
-    internal class ElementBar : ElementUI
+    internal class Icon
     {
-
     }
 }

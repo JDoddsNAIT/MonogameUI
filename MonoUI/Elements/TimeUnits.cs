@@ -1,4 +1,4 @@
-﻿namespace JDoddsUI
+﻿namespace MonoUI.Elements
 {
     public enum TimeUnits
     {

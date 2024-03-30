@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 
-namespace JDoddsUI
+namespace MonoUI.Elements
 {
     public class MonoTimer
     {

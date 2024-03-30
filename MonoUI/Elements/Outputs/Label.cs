@@ -4,7 +4,7 @@ using System;
 
 namespace JDoddsUI
 {
-    public class TextObject
+    public class Label
     {
         #region Fields
         private string _text;

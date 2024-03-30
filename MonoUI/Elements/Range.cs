@@ -1,4 +1,4 @@
-﻿namespace Mosquito_Attack.JDoddsUI
+﻿namespace MonoUI.Elements
 {
     /// <summary>
     /// Defines a range of values.
