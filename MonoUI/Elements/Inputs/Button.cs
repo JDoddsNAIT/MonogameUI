@@ -7,7 +7,7 @@ using MonoUI.Elements;
 using MonoUI.Elements.Outputs;
 using System;
 
-namespace JDoddsUI
+namespace MonoUI.Elements.Inputs
 {
     public class Button : UIElement
     {

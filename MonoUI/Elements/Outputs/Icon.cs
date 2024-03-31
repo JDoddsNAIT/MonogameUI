@@ -16,7 +16,7 @@ namespace MonoUI.Elements.Outputs
         public Vector2 Position { get => _position; set => _position = value; }
         public Rectangle BoundingBox
         {
-            get => new Rectangle(Position.ToPoint(), _dimensions.ToPoint());
+            get => new(Position.ToPoint(), _dimensions.ToPoint());
             set
             {
                 _position = value.Location.ToVector2();

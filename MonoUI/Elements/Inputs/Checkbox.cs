@@ -9,8 +9,8 @@ namespace MonoUI.Elements.Inputs
     public class Checkbox
     {
         private bool _value;
-        private MonoUI.Elements.Outputs.Label _label;
         private int _button;
+
 
         public void Toggle()
         {

@@ -23,9 +23,7 @@ namespace MonoUI
 
         public Vector2 Position { get => _position; set => _position = value; }
         public string Text { get => _text; set => _text = value; }
-        public Rectangle BoundingBox => new(
-            Position.ToPoint(),
-            (_font.MeasureString(Text) * _fontSize).ToPoint());
+        public Rectangle BoundingBox => new(Position.ToPoint(), (_font.MeasureString(Text) * _fontSize).ToPoint());
         public Vector2 Center
         {
             get => BoundingBox.Size.ToVector2() / 2;

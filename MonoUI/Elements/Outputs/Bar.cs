@@ -41,7 +41,7 @@ namespace MonoUI.Elements.Outputs
             _background = new(content.Load<Texture2D>(textureName));
             _barTexture = new(content.Load<Texture2D>(barTextureName));
         }
-        public void Update(GameTime gameTime)
+        public void Update()
         {
             _barRect.Width = (int)(_barPosition.X + _barSize.X * _range.Lerp(_value));
         }
