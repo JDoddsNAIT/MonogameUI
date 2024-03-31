@@ -20,9 +20,9 @@ namespace MonoUI.Elements.Inputs
 
         #endregion
 
-        private int _leftButton;
-        private int _rightButton;
-        private MonoUI.Elements.Outputs.Label _label;
+        private Button _leftButton;
+        private Button _rightButton;
+        private Label _label;
         private Enum _enum;
 
         public override void Draw()

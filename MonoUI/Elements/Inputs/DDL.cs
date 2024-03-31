@@ -8,7 +8,6 @@ namespace MonoUI.Elements.Inputs
 {
     public class DDL
     {
-        private int _label;
         private int _button;
         private Enum _options;
 
