@@ -14,7 +14,6 @@ namespace MonoUI.Elements.Inputs
         private Action _onClick;
         private Color _color;
         private Color _fadeColor;
-        private NineSlice _background;
 
         public Color CurrentColor => Color.Lerp(_color, _fadeColor, IsHovering ? (float)_fadeTimer.ElapsedRange : (float)_fadeTimer.RemainingRange);
         #endregion
@@ -25,23 +24,28 @@ namespace MonoUI.Elements.Inputs
         #endregion
 
         #region Monogame Methods
-        internal void Initialize(Vector2 position, Vector2 dimensions, Color color, Color? fadeColor, Action onClick, Icon icon, Label label)
+        public void Initialize(
+            Vector2 position,
+            Vector2 dimensions,
+            Icon icon,
+            Label label,
+            Color color,
+            Color? fadeColor,
+            Action onClick)
         {
             base.Initialize(position, dimensions, icon, label);
             _color = color;
             _fadeColor = fadeColor ?? color;
             _onClick = onClick;
         }
-        internal void LoadContent(ContentManager content, string assetName)
+        public override void LoadContent(ContentManager content, string[] assetNames)
         {
-            _background = new NineSlice(content.Load<Texture2D>(assetName));
+            if (assetNames.Length != 3)
+            {
+                throw new ArgumentException("Paramater must contain 3 values.", nameof(assetNames));
+            }
+            base.LoadContent(content, assetNames[..2]);
         }
-        public override void Draw(SpriteBatch spriteBatch, Color color)
-        {
-            _background.Draw(spriteBatch, BoundingBox, CurrentColor);
-            base.Draw(spriteBatch, color);
-        }
-
         public void Update(GameTime gameTime, MouseState currentMouseState, MouseState previousMouseState)
         {
             IsHovering = BoundingBox.Contains(currentMouseState.Position);
@@ -55,6 +59,11 @@ namespace MonoUI.Elements.Inputs
             }
             _fadeTimer.Update(gameTime);
             CheckClick(currentMouseState, previousMouseState);
+        }
+        public override void Draw(SpriteBatch spriteBatch, Color color)
+        {
+            _color = color;
+            base.Draw(spriteBatch, color);
         }
         #endregion
 

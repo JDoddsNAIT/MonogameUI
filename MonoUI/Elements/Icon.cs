@@ -2,17 +2,15 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MonoUI.Elements.Outputs
+namespace MonoUI.Elements
 {
     public class Icon
     {
+        private Texture2D _sprite;
         private Vector2 _position;
         private Vector2 _dimensions;
-        private Texture2D _texture;
-        private Color _color;
 
-        public Texture2D Texture { get => _texture; set => _texture = value; }
-        public Color Color { get => _color; set => _color = value; }
+        public Texture2D Sprite { get => _sprite; set => _sprite = value; }
         public Vector2 Position { get => _position; set => _position = value; }
         public Rectangle BoundingBox
         {
@@ -36,12 +34,12 @@ namespace MonoUI.Elements.Outputs
         }
         public void LoadContent(ContentManager content, string assetName)
         {
-            Texture = content.Load<Texture2D>(assetName);
+            Sprite = content.Load<Texture2D>(assetName);
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture, BoundingBox, color);
+            spriteBatch.Draw(Sprite, BoundingBox, color);
         }
     }
 }

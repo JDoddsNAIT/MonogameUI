@@ -8,8 +8,6 @@ namespace MonoUI.Elements.Outputs
     internal class Bar : UIElement
     {
         #region Fields
-        private NineSlice _background;
-
         private Range _range;
         private float _value;
 
@@ -36,10 +34,14 @@ namespace MonoUI.Elements.Outputs
             _barSize = BoundingBox.Size.ToVector2() - 2 * padding;
         }
 
-        public void LoadContent(ContentManager content, string textureName, string barTextureName)
+        public override void LoadContent(ContentManager content, string[] assetNames)
         {
-            _background = new(content.Load<Texture2D>(textureName));
-            _barTexture = new(content.Load<Texture2D>(barTextureName));
+            if (assetNames.Length != 4)
+            {
+                throw new ArgumentException("Paramater must contain 4 values.", nameof(assetNames));
+            }
+            base.LoadContent(content, assetNames[..2]);
+            _barTexture = new(content.Load<Texture2D>(assetNames[3]));
         }
         public void Update()
         {
@@ -48,10 +50,9 @@ namespace MonoUI.Elements.Outputs
 
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            _background.Draw(spriteBatch, BoundingBox, color);
+            base.Draw(spriteBatch, color);
             _barTexture.Draw(spriteBatch, _barRect, color);
         }
-
         #endregion
     }
 }

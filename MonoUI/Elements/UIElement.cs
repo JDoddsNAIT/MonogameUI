@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoUI.Elements.Outputs;
 
@@ -8,6 +9,7 @@ namespace MonoUI.Elements
     {
         private Vector2 _position;
         private Vector2 _dimensions;
+        private NineSlice _background;
 
         public Vector2 Position { get => _position; set => _position = value; }
         public virtual Rectangle BoundingBox
@@ -26,6 +28,7 @@ namespace MonoUI.Elements
             set => _position = value - Center;
         }
 
+        public NineSlice Background { get => _background; set => _background = value; }
         public Icon Icon { get; set; }
         public Label Label { get; set; }
 
@@ -35,8 +38,19 @@ namespace MonoUI.Elements
             Icon = icon;
             Label = label;
         }
+        public virtual void LoadContent(ContentManager content, string[] assetNames)
+        {
+            if (assetNames.Length != 3)
+            {
+                throw new System.ArgumentException("Paramater must contain 3 values.", nameof(assetNames));
+            }
+            Background = new(content.Load<Texture2D>(assetNames[0]));
+            Icon.LoadContent(content, assetNames[1]);
+            Label.LoadContent(content, assetNames[2]);
+        }
         public virtual void Draw(SpriteBatch spriteBatch, Color color)
         {
+            Background.Draw(spriteBatch, BoundingBox, color);
             Icon.Draw(spriteBatch, color);
             Label.Draw(spriteBatch, color);
         }

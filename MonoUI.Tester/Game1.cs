@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoUI.Elements;
+using MonoUI.Elements.Inputs;
 
 namespace MonoUI.Tester
 {
@@ -8,6 +10,9 @@ namespace MonoUI.Tester
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        private Icon icon = new Icon();
+        private UIElement _exitButton = new Button();
 
         public Game1()
         {
