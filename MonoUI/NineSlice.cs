@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace MonoUI.Elements
+namespace MonoUI
 {
     /// <summary>
     /// Divides a <see cref="Texture2D"/> into 9 cells. Used for scaling, the size of the corner cells will remain the same while the edge and center cells may stretch or tile to match the new dimensions.

@@ -1,4 +1,4 @@
-﻿namespace MonoUI.Elements
+﻿namespace MonoUI
 {
     /// <summary>
     /// Defines a range of values.

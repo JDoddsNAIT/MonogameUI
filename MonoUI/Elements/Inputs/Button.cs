@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MonoUI;
 using MonoUI.Elements;
 using MonoUI.Elements.Outputs;
@@ -12,50 +13,67 @@ namespace JDoddsUI
     {
         #region Fields
         private Action _onClick;
-        private Icon _icon;
-        private Label _label;
+        private Color _color;
         private Color _fadeColor;
         private MonoTimer _fadeTimer;
-        private int _padding;
         private NineSlice _background;
-        private bool IsHovering = false;
 
-        public Color CurrentColor => Color.Lerp(Color, _fadeColor, IsHovering ? (float)_fadeTimer.ElapsedRange : (float)_fadeTimer.RemainingRange);
+
+        public Color CurrentColor => Color.Lerp(_color, FadeColor, IsHovering ? (float)_fadeTimer.ElapsedRange : (float)_fadeTimer.RemainingRange);
         #endregion
 
         #region Properties
-
+        public bool IsHovering { get; private set; }
+        public bool WasHovering { get; private set; }
+        private Color? FadeColor { get => _fadeColor; set => _fadeColor = value ?? Color.White; }
         #endregion
 
         #region Monogame Methods
-        internal void Initialize(Vector2 position, Vector2 dimensions, NineSlice background, Color defaultColor, Color? fadeColor, Action onClick)
+        internal void Initialize(Vector2 position, Vector2 dimensions, Color color, Color? fadeColor, Action onClick, Icon icon, Label label)
         {
-            base.Initialize(position, dimensions, background, defaultColor, fadeColor, onClick);
+            base.Initialize(position, dimensions, icon, label);
+            _color = color;
+            FadeColor = fadeColor;
+            _onClick = onClick;
         }
-        internal void LoadContent(ContentManager content, string assetName, Point slice1, Point? slice2)
+        internal void LoadContent(ContentManager content, string assetName)
         {
-            _background = slice2 is null ?
-                new NineSlice(content.Load<Texture2D>(assetName), slice1) :
-                new NineSlice(content.Load<Texture2D>(assetName), slice1, (Point)slice2);
+            _background = new NineSlice(content.Load<Texture2D>(assetName));
         }
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            throw new System.NotImplementedException();
+            _background.Draw(spriteBatch, BoundingBox, CurrentColor);
+            base.Draw(spriteBatch, color);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime, MouseState currentMouseState, MouseState previousMouseState)
         {
-            throw new System.NotImplementedException();
+            IsHovering = BoundingBox.Contains(currentMouseState.Position);
+            WasHovering = BoundingBox.Contains(previousMouseState.Position);
+            _fadeTimer.Start();
+
+            if (IsHovering && !WasHovering ||
+                !IsHovering && WasHovering)
+            {
+                _fadeTimer.Reset();
+            }
+            _fadeTimer.Update(gameTime);
+
+            if (CheckClick(currentMouseState, previousMouseState))
+            {
+                _onClick();
+            }
         }
         #endregion
 
         #region Methods
-
-        public void CheckClick()
+        private bool CheckClick(MouseState currentMouseState, MouseState previousMouseState)
         {
-            throw new System.NotImplementedException();
+            return BoundingBox.Contains(currentMouseState.Position)
+                && currentMouseState.LeftButton == ButtonState.Pressed
+                && BoundingBox.Contains(previousMouseState.Position)
+                && previousMouseState.LeftButton == ButtonState.Released;
         }
-
         #endregion
 
     }

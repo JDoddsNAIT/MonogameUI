@@ -8,50 +8,48 @@ namespace MonoUI.Elements.Outputs
     internal class Bar : UIElement
     {
         #region Fields
-        private NineSlice _barTexture;
-        private Vector2 _padding;
+        private NineSlice _background;
 
         private Range _range;
-        private double _value;
+        private float _value;
 
-        public double Value
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public Texture2D BarTexture
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        #region Bar variables
+        private NineSlice _barTexture;
+        private Vector2 _barSize;
+        private Vector2 _barPosition;
+        private Rectangle _barRect;
+        #endregion
+        public float Value { get => _value; set => _value = value; }
         #endregion
 
         #region Methods
-        internal void Initialize(Vector2 position, Vector2 dimensions, Vector2 padding, Range range)
+        public void Initialize(
+            Vector2 position,
+            Vector2 dimensions,
+            Vector2 padding,
+            Range range)
         {
-            Position = position;
-            Dimensions = dimensions;
-            _padding = padding;
+            BoundingBox = new Rectangle(position.ToPoint(), dimensions.ToPoint());
             _range = range;
+
+            _barPosition = padding;
+            _barSize = BoundingBox.Size.ToVector2() - 2 * padding;
         }
 
-        internal void LoadContent(ContentManager content, string textureName, string barTextureName)
+        public void LoadContent(ContentManager content, string textureName, string barTextureName)
         {
-            throw new NotImplementedException();
+            _background = new(content.Load<Texture2D>(textureName));
+            _barTexture = new(content.Load<Texture2D>(barTextureName));
         }
-        internal override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            _barRect.Width = (int)(_barPosition.X + _barSize.X * _range.Lerp(_value));
         }
 
-        internal override void Draw(SpriteBatch spriteBatch, Color color)
+        public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            throw new NotImplementedException();
+            _background.Draw(spriteBatch, BoundingBox, color);
+            _barTexture.Draw(spriteBatch, _barRect, color);
         }
 
         #endregion
