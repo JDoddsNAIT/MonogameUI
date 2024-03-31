@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonoUI.Elements.Inputs
 {
-    internal class Sllider
+    internal class Slider : ElementUI
     {
     }
 }

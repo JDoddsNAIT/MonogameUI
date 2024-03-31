@@ -1,57 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace JDoddsUI
+namespace MonoUI
 {
-    public class Label
+    public class Label : UIElement
     {
-        #region Fields
-        private string _text;
         private SpriteFont _font;
+        private string _text;
         private float _fontSize;
-        private Color _fontColor;
-        private Vector2 _position;
-        #endregion
 
-        #region Properties
-        public Rectangle StringDimensions => new(
-            location: _position.ToPoint(), 
-            size: (_font.MeasureString(_text) * _fontSize).ToPoint());
-        public Vector2 Position { get => _position; set => _position = value; }
         public string Text { get => _text; set => _text = value; }
-        #endregion
+        public override Rectangle BoundingBox => new(
+            Position.ToPoint(),
+            (_font.MeasureString(Text) * _fontSize).ToPoint());
 
-        #region Methods
-        #region Monogame Methods
-        internal void Initialize(
-            Vector2 position,
-            string text,
-            SpriteFont font,
-            float fontSize,
-            Color fontColor)
+        public void LoadContent()
         {
-            if (string.IsNullOrEmpty(text))
-            {
-                throw new System.ArgumentException($"'{nameof(text)}' cannot be null or empty.", nameof(text));
-            }
-
-            _position = position;
-            _text = text;
-            _font = font ?? throw new System.ArgumentNullException(nameof(font));
-            _fontSize = fontSize;
-            _fontColor = fontColor;
+            throw new System.NotImplementedException();
         }
-        internal void Draw(SpriteBatch spriteBatch)
+
+        public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            if (spriteBatch is null)
-            {
-                throw new ArgumentNullException(nameof(spriteBatch));
-            }
-
-            spriteBatch.DrawString(_font, _text, _position, _fontColor, 0, Vector2.Zero, _fontSize, SpriteEffects.None, 1);
+            throw new System.NotImplementedException();
         }
-        #endregion
-        #endregion
     }
 }

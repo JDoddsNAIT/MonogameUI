@@ -1,12 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoUI.Elements.Outputs
 {
-    internal class SegmentDisplay
+    public class SegmentDisplay : UIElement
     {
+        private int _value;
+        private Rectangle _sourceRectangles;
+
+        public int Value
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, Microsoft.Xna.Framework.Color color)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Initialize()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void LoadContent()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Increment()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MonoUI.Elements.Outputs.Bar">
+    <Position X="12.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQQAAAAAAAAAwAAEAAABAAAAAAEAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>Elements\Outputs\Bar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.Elements.Outputs.Icon">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Elements\Outputs\Icon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.Elements.Outputs.SegmentDisplay">
+    <Position X="14.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAwAAIAABAAAAAAAAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>Elements\Outputs\SegmentDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JDoddsUI.Button">
+    <Position X="7" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAIwAQABAAAAAAACAkAKCAAAAAAQAAAAQ=</HashCode>
+      <FileName>Elements\Inputs\Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.Elements.Inputs.Carousel">
+    <Position X="2.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAA4AAABIAAAAAAQAAAAAAEAAAAAAAAAY=</HashCode>
+      <FileName>Elements\Inputs\Carousel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.Elements.Inputs.Checkbox">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAAAwAAABAAAAAAAIAAABAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Elements\Inputs\Checkbox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.Elements.Inputs.DDL">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgAQAAAwAAABAAAAAAAIAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Elements\Inputs\DDL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.UIElement">
+    <Position X="10.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAIAgAAAAAAAAAgAAABAAAAAAIAgAAAAAA=</HashCode>
+      <FileName>UIElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.Elements.ElementUI">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwBAEAABAAIIwAQAAAAAgMAACAhAKAAAAAAgAAABAA=</HashCode>
+      <FileName>Elements\ElementUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonoUI.Label">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAgAACAAAAIAAAACAQAAAQ=</HashCode>
+      <FileName>Elements\Outputs\Label.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

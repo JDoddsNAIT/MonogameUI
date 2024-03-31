@@ -5,7 +5,7 @@ using System;
 
 namespace MonoUI.Elements.Outputs
 {
-    internal class Bar : ElementUI
+    internal class Bar : UIElement
     {
         #region Fields
         private NineSlice _barTexture;
@@ -13,6 +13,22 @@ namespace MonoUI.Elements.Outputs
 
         private Range _range;
         private double _value;
+
+        public double Value
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Texture2D BarTexture
+        {
+            get => default;
+            set
+            {
+            }
+        }
         #endregion
 
         #region Methods

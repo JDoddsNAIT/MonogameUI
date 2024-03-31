@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MonoUI.Elements.Inputs
 {
-    internal class Carousel
+    public class Carousel
     {
         #region Fields and Properties
 
@@ -19,5 +19,40 @@ namespace MonoUI.Elements.Inputs
         #region Methods
 
         #endregion
+
+        private int _leftButton;
+        private int _rightButton;
+        private MonoUI.Elements.Outputs.Label _label;
+        private Enum _enum;
+
+        public override void Draw()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Initialize()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void LoadContent()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void IncrementEnum()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DecrementEnum()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
