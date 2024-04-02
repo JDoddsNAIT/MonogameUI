@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MonoUI.Elements.Outputs;
 
 namespace MonoUI.Elements
@@ -42,7 +43,7 @@ namespace MonoUI.Elements
         {
             if (assetNames.Length != 3)
             {
-                throw new System.ArgumentException("Paramater must contain 3 values.", nameof(assetNames));
+                throw new System.ArgumentException("Parameter must contain 3 values.", nameof(assetNames));
             }
             Background = new(content.Load<Texture2D>(assetNames[0]));
             Icon.LoadContent(content, assetNames[1]);
@@ -53,6 +54,10 @@ namespace MonoUI.Elements
             Background.Draw(spriteBatch, BoundingBox, color);
             Icon.Draw(spriteBatch, color);
             Label.Draw(spriteBatch, color);
+        }
+        public virtual void Update(GameTime gameTime, MouseState mouseState, MouseState pMouseState)
+        {
+            ;
         }
     }
 }

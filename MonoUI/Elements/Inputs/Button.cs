@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoUI.Elements.Outputs;
 using System;
 
 namespace MonoUI.Elements.Inputs
@@ -38,15 +37,21 @@ namespace MonoUI.Elements.Inputs
             _fadeColor = fadeColor ?? color;
             _onClick = onClick;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="assetNames">String array of 3 asset names. 1st: Background; 2nd: Font; 3rd: Icon.</param>
+        /// <exception cref="ArgumentException"></exception>
         public override void LoadContent(ContentManager content, string[] assetNames)
         {
             if (assetNames.Length != 3)
             {
-                throw new ArgumentException("Paramater must contain 3 values.", nameof(assetNames));
+                throw new ArgumentException("Parameter must contain 3 values.", nameof(assetNames));
             }
             base.LoadContent(content, assetNames[..2]);
         }
-        public void Update(GameTime gameTime, MouseState currentMouseState, MouseState previousMouseState)
+        public override void Update(GameTime gameTime, MouseState currentMouseState, MouseState previousMouseState)
         {
             IsHovering = BoundingBox.Contains(currentMouseState.Position);
             WasHovering = BoundingBox.Contains(previousMouseState.Position);
